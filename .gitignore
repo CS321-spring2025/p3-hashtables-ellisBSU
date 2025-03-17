@@ -1,7 +1,10 @@
 .classpath
 .project
+test-cases/
+*.class
 out*
 .idea
 *.iml
 *.jar
-simple-inheritance-example/
+word-list.txt
+simple_inheritance_example/
