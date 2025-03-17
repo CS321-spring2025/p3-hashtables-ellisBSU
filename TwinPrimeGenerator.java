@@ -2,19 +2,16 @@ import java.util.Arrays;
 
 /**
  * Helper class that is used to provide the static method generateTwinPrime() 
- * that generates a size for the table of a Hashtable. 
+ * that generates a size for the array of a Hashtable. 
  * 
  * @author Ellis Rodriguez 
  */
 public class TwinPrimeGenerator {
     
     /**
-     * Special thanks to GeeksForGeeks for their article on the Sieve of Eratothenes
-     * algorithm. I their article on that algorithm to generate the prime numbers up 
-     * to int parameter max. Function will return the greater value of a set of twin 
-     * prime numbers. The set of twin prime numbers will be the smallest set in the 
+     * Function will generate prime numbers then return the greater value of a set of 
+     * twin prime numbers. The set of twin prime numbers will be the smallest set in the 
      * range of parameter min to parameter max. 
-     * Link to the article: https://www.geeksforgeeks.org/sieve-of-eratosthenes/ 
      * @param min The minimum value that the prime number could be
      * @param max The maximum value that the prime number could be
      * @return The greater value of a twin set of prime numbers

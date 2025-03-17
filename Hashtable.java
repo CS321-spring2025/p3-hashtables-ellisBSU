@@ -52,10 +52,11 @@ public abstract class Hashtable {
     /**
      * Inserts the HashObject parameter element inside the the Hashtable.
      * The function returns the index of where the element was inserted 
-     * else it returns -1 if the element could not be inserted. 
+     * else it returns -1 if the element could not be inserted or -2 if the 
+     * element is a duplicate. 
      * @param element The HashObject being inserted into the Hashtable.
      * @return The index of where the element was inserted else -1 if the 
-     * element could not be inserted. 
+     * element could not be inserted or -2 if the element is a duplicate. 
      */
     public int insert(HashObject element) {
         int i = 0; 
@@ -102,38 +103,32 @@ public abstract class Hashtable {
     }
 
     /**
-     * 
-     * @return
+     * Returns the capacity of the Hashtable
+     * @return The capacity of the Hashtable
      */
     public int getTableCapacity() {
         return this.m;
     }
 
     /**
+     * Returns the size of the Hashtable. The
+     * size is the number of unique elements inside 
+     * the Hashtable. 
      * 
-     * @return
+     * @return The size of the Hashtable
      */
     public int getSize() {
         return this.size;
     }
 
     /**
-     * 
-     * @return
-     */
-    public HashObject[] getTableCopy() {
-        HashObject[] copy = new HashObject[this.m];
-
-        for(int i = 0; i < this.m; i++) {
-            copy[i] = this.array[i];
-        }
-
-        return copy;
-    }
-
-    /**
-     * 
-     * @param debugLevel
+     * Calculates the debug stats for this Hashtable. Prints those stats to the 
+     * console. The stats include numbers such as the avg no. of probes, total number
+     * of elements inserted, number of duplicate, etc. 
+     * @param debugLevel The debugLevel of HashtableExperiment. If 1 then getStats() dumps
+     * the properties of each element inside of another file. 
+     * @param linearOrDouble A boolean that is used to determine which file we should dump 
+     * the properties of each element inside of. 
      */
     public void getStats(int debugLevel, int linearOrDouble) {
         System.out.println("Hashtable Experiment: size of hash table is " + this.getSize());
@@ -158,10 +153,11 @@ public abstract class Hashtable {
         }
 
         System.out.println("      Inserted " + totalInserted + " elements, of which " + duplicates + " were duplicates");
-        System.out.println("      Avg. no. of probes = " + avgProbeString + "\n");
+        System.out.println("      Avg. no. of probes = " + avgProbeString);
         if(debugLevel == 1) {
             System.out.println("HashtableExperiment: Saved dump of hash table");
             if(linearOrDouble == 1) {
+                System.out.println();
                 this.dumpToFile("linear-dump.txt");
             } else {
                 this.dumpToFile("double-dump.txt");
@@ -170,8 +166,10 @@ public abstract class Hashtable {
     }
 
     /**
-     * writes to the file fileName
-     * @param fileName
+     * Writes the statistics of each HashObject element to a text file. This is 
+     * used for debug level 1 in the HashtableExperiment.
+     * 
+     * @param fileName The name of the file we are writing to. 
      */
     private void dumpToFile(String fileName) {
         try {
@@ -190,10 +188,13 @@ public abstract class Hashtable {
     /**
      * The hash method that both LinearProbing and DoubleHashing must implement. 
      * This function is used to determine which location to probe for in a Hashtable.
-     * The function returns the integer result of the hash function. The HashObject parameter
-     * element is used to determine which key to use for the hash function. 
+     * The function returns the integer result of the hash function that is then used 
+     * for probing.
+     *  
      * @param element The HashObject the function is hashing for. The element will contain a key 
      * that the hash function uses for hashing.
+     * @param index The current probe the element is on. The index is included in the 
+     * hash. 
      * @return The integer result from the hash calculation.  
      */
     public abstract int hash(HashObject element, int index);
