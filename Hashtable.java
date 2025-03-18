@@ -2,9 +2,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
- * An abstract class used to represent a hashtable. The class 
- * supports general set methods such as insert(), search(), and
- * delete().
+ * An abstract class used to represent a hashtable. The class supports
+ * the general set methods insert() and search().
  * 
  * @author Ellis Rodriguez
  */

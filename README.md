@@ -4,8 +4,6 @@
 * Class: CS321 Section 002
 * Semester: Spring 2025
 
-**Note: Download this file and add to your repo as README.md. Don't cut and paste it as you won't get the formatting Markdown tags!**
-
 ## Overview
 The program experiments with Hashing. It gives the user an idea of the  
 relationship between the number of probes per element in the Hashtable and
@@ -14,11 +12,6 @@ by showing how many elements were inserted into the hashtable, how many probes o
 it took to insert an object into the Hashtable, the size of the hashtable, and how many
 of the elements were duplicates. 
 
-
-Concisely explain what the program does. If this exceeds a couple of
-sentences, you're going too far. Generally you should be pulling this
-right from the project specification. I don't want you to just cut and
-paste, but paraphrase what is stated in the project specification.
 
 ## Reflection
 Most of the project went well for me but it did take a couple of iterations
@@ -34,7 +27,7 @@ of how Hashing works.
 The part that was less desirable for me was implementing the HashtableExperiment class since
 it was just simulating the experiment. There was also a lot that I had to decompose so that it 
 would be easy to follow the different parts of the simulation. There was nothing different with doing
-this portion compared to other projects. I ran into an issue with the insert() method in the HashtableExperiment 
+this portion compared to other projects. I ran into an issue with the insert() method in the Hashtable
 class. I would hash twice for the intial probe before incrementing the index which would mess with the average 
 number of probes.  
 
